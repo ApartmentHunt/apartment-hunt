@@ -1,0 +1,75 @@
+a:hover{
+    color: #102421;
+}
+hr {
+    background-color: #275A53;
+    width: 25%;
+    margin: 20px auto;
+}
+.loginContainer{
+    padding: 20px;
+}
+.loginForm{
+    max-width: 100%;
+    width: 350px;
+    height: 275px;
+    max-height: 100%;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ABABAB;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.loginContainer form label{
+    font-weight: 450;
+    font-size: 15px;
+}    
+.help{
+    float: right;
+    color: #275A53;
+    font-weight: 470;
+    font-size: 15px;
+}
+.lgnBtnContainer{
+    text-align: center;
+    margin-top: -15px;
+}
+.form-control{
+    height: 35px;
+    margin-top: -8px;
+}
+.lgnBtnContainer button{
+    width: 100%;
+    background: #275A53;
+}
+.lgnBtnContainer button:hover{
+    background: #183834;
+}
+small{
+    font-weight: 500;
+    font-size: 12px;
+}
+small a{
+    color: #275A53;
+}
+.socialBtnContainer{
+    justify-content: center;
+}
+.socialBtn{
+    display: block;
+    width: 250px;
+    height: 35px;
+    background-size: 28px;
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+    border: 1px solid #ABABAB;
+    border-radius: 25px;
+    margin: 10px auto;
+}
+.fbBtn{
+    background-image: url(../../Icon/fb.png);
+}
+.gBtn{
+    background-image: url(../../Icon/google.png);
+}
