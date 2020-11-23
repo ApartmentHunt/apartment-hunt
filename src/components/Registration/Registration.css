@@ -1,78 +1,77 @@
-a:hover{
-    color: #102421;
+a:hover {
+  color: #102421;
 }
 hr {
-    background-color: #275A53;
-    width: 25%;
-    margin: 20px auto;
+  background-color: #275a53;
+  width: 25%;
+  margin: 20px auto;
 }
-.registrationContainer{
-    padding: 5px;
+.registrationContainer {
+  padding: 5px;
 }
-.regiForm{
-    max-width: 100%;
-    width: 350px;
-    height: 355px;
-    max-height: 100%;
-    margin: 20px auto;
-    padding: 20px 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid #ABABAB;
-    box-sizing: border-box;
-    border-radius: 5px;
+.regiForm {
+  max-width: 100%;
+  width: 350px;
+  height: 355px;
+  max-height: 100%;
+  margin: 20px auto;
+  padding: 20px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ababab;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
-.registrationContainer form label{
-    font-weight: 450;
-    font-size: 15px;
-}    
-.regiForm .help{
-    float: right;
-    color: #275A53;
-    font-weight: 470;
-    font-size: 15px;
+.registrationContainer form label {
+  font-weight: 450;
+  font-size: 15px;
 }
-.regiBtnContainer{
-    text-align: center;
-    margin-top: -20px;
+.regiForm .help {
+  float: right;
+  color: #275a53;
+  font-weight: 470;
+  font-size: 15px;
 }
-.form-control{
-    height: 35px;
-    margin-top: -8px;
+.regiBtnContainer {
+  text-align: center;
+  margin-top: -20px;
 }
-.regiBtnContainer button{
-    width: 100%;
-    background: #275A53;
+.form-control {
+  height: 35px;
+  margin-top: -8px;
 }
-.regiBtnContainer button:hover{
-    background: #183834;
-    
+.regiBtnContainer button {
+  width: 100%;
+  background: #275a53;
 }
-small{
-    font-weight: 500;
-    font-size: 12px;
+.regiBtnContainer button:hover {
+  background: #183834;
 }
-small a{
-    color: #275A53;
+small {
+  font-weight: 500;
+  font-size: 12px;
 }
-.socialBtnContainer{
-    justify-content: center;
+small a {
+  color: #275a53;
 }
-.socialBtn{
-    display: block;
-    width: 250px;
-    height: 35px;
-    background-size: 28px;
-    background-repeat: no-repeat;
-    background-position: 2px 2px;
-    border: 1px solid #ABABAB;
-    border-radius: 25px;
-    margin: 10px auto;
+.socialBtnContainer {
+  justify-content: center;
 }
-.fbBtn{
-    background-image: url(../../Icon/fb.png);
+.socialBtn {
+  display: block;
+  width: 250px;
+  height: 35px;
+  background-size: 28px;
+  background-repeat: no-repeat;
+  background-position: 2px 2px;
+  border: 1px solid #ababab;
+  border-radius: 25px;
+  margin: 10px auto;
 }
-.gBtn{
-    background-image: url(../../Icon/google.png);
+.fbBtn {
+  background-image: url(../../Icon/fb.png);
+}
+.gBtn {
+  background-image: url(../../Icon/google.png);
 }
 
 /* Media Query */
