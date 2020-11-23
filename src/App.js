@@ -1,11 +1,9 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-import ApartmentMain from './components/ApartmentMain/ApartmentMain';
-
-
-
-
+import React, { createContext, useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import ApartmentMain from "./components/ApartmentMain/ApartmentMain";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
 
 export const UserContext = createContext();
 
@@ -14,12 +12,11 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   useEffect(() => {
     fetch(`${loggedInUser.email}`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setAdmin(data);
-      })
+      });
   }, [loggedInUser.email]);
-
 
   console.log(loggedInUser);
   return (
@@ -28,10 +25,16 @@ function App() {
         <Router>
           <div>
             <Switch>
-             <Route >
-              <ApartmentMain></ApartmentMain>
+              <Route exact path="/">
+                <Home></Home>
               </Route>
-             </Switch>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+              <Route path="/booking">
+                <ApartmentMain></ApartmentMain>
+              </Route>
+            </Switch>
           </div>
         </Router>
       </UserContext.Provider>
