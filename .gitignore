@@ -24,3 +24,4 @@ yarn-error.log*
 _cacache
 _locks
 .eslintcache
+anonymous-cli-metrics.json
