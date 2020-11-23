@@ -1,8 +1,11 @@
 import React from 'react';
+import NavBar from '../NavBar/NavBar';
 import './Login.css';
 
 const Login = () => {
     return (
+        <div>
+            <NavBar></NavBar>
         <div className="loginContainer">
             <form className=" loginForm">
                 <h4>Login</h4>
@@ -28,7 +31,8 @@ const Login = () => {
                 <button type="button" className="btn btn-light socialBtn fbBtn">Continue with Facebook</button>
                 <button type="button" className="btn btn-light socialBtn gBtn"> Continue with Google</button>
             </div>
-        </div>
+            </div>
+            </div>
     );
 };
 
