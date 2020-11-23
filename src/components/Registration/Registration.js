@@ -1,9 +1,12 @@
 import React from 'react';
+import NavBar from '../NavBar/NavBar';
 import './Registration.css';
 
 const Registration = () => {
     return (
-        <div className="registrationContainer">
+        <div> 
+            <NavBar></NavBar>
+            <div className="registrationContainer">
             <form className=" regiForm">
                 <h4>Create an account</h4>
                 <br />
@@ -32,6 +35,7 @@ const Registration = () => {
                 <button type="button" className="btn btn-light socialBtn fbBtn">Continue with Facebook</button>
                 <button type="button" className="btn btn-light socialBtn gBtn"> Continue with Google</button>
             </div>
+        </div>
         </div>
     );
 };
