@@ -37,13 +37,12 @@ function App() {
 
               <Route path="/admin-login">
                 <AdminLogin></AdminLogin>
-
+              </Route>
               <Route path="/ApartmentMain/:_id">
                 <ApartmentMain></ApartmentMain>
               </Route>
               <Route path="/dashboard">
                 <Dashboard></Dashboard>
-
               </Route>
               <Route path="/booking">
                 <ApartmentMain></ApartmentMain>
