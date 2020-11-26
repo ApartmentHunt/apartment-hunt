@@ -1,15 +1,11 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-import ApartmentMain from './components/ApartmentMain/ApartmentMain';
-import Appartments from './components/Appartments/Appartments';
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
-import Registration from './components/Registration/Registration';
-
-
-
-
+import React, { createContext, useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import ApartmentMain from "./components/ApartmentMain/ApartmentMain";
+import Appartments from "./components/Appartments/Appartments";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import Registration from "./components/Registration/Registration";
 
 export const UserContext = createContext();
 
@@ -18,12 +14,11 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   useEffect(() => {
     fetch(`${loggedInUser.email}`)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setAdmin(data);
-      })
+      });
   }, [loggedInUser.email]);
-
 
   console.log(loggedInUser);
   return (
@@ -32,17 +27,16 @@ function App() {
         <Router>
           <div>
             <Switch>
-            <Route exact path="/">
+              <Route exact path="/">
                 <Home></Home>
               </Route>
-
-              <Route path="/home">
-                <Home></Home>
+              <Route path="/login">
+                <Login></Login>
               </Route>
-              <Route path="/ApartmentMain">
-              <ApartmentMain></ApartmentMain>
+              <Route path="/booking">
+                <ApartmentMain></ApartmentMain>
               </Route>
-             </Switch>
+            </Switch>
           </div>
         </Router>
       </UserContext.Provider>
