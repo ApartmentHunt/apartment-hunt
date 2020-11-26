@@ -63,96 +63,56 @@ const Login = () => {
     });
     event.preventDefault();
   };
+  
+    const handleResponse = (res) => {
 
-  const fbSignIn = (event) => {
+        if (res.success) {
+            setUser(res);
+            setLoggedInUser(res);
+            history.replace("/dashboard-user");
+
+        } if (res.error) {
+            setUser(res);
+            setLoggedInUser(res);
+        }
+
+    }
+    const fbSignIn = (event) => {
     handleFbSignIn().then((res) => {
       handleResponse(res);
     });
     event.preventDefault();
-  };
+    };
+    return (
+        <Container style={{ paddingBottom: '100px' }}>
+            <NavBar></NavBar>
+            <div className="form-container" style={{ paddingTop: '50px' }}>
+                <form onSubmit={handleSubmit} className="login-form">
+                    <h4>Login</h4>
+                    <br />
+                    <input type="text" onBlur={handleBlur} name="email" placeholder="Username or Email" required />
+                    <br />
+                    <input id="password" type="password" onBlur={handleBlur} name="password" placeholder="Password" required />
+                    <br />
+                    <input className="submit-button" type="submit" value="Login" />
+                    <br />
+                    <p className="alert"><small>Don't have any account? <span><a as={Link} href="/signup">Create an account</a></span> </small></p>
+                </form>
+                <div style={{ textAlign: 'center' }}>
+                    <p style={{ color: 'red' }}>{user.error}</p>
+                    {user.success && <p style={{ color: 'green' }}>User logged in successfully</p>}
+                </div>
+            </div>
+            <p className="text-center"><small><span><a  style={{color: 'red', fontWeight: 'bold'}} as={Link} href="/admin-login">For Admin Login Click Here</a></span> </small></p>
+            <hr className="divider" />
+            <div className='socialLoginButton'>
+                <button onClick={fbSignIn} ><img className='socialIcon' src={FbIcon} alt="" /> Continue with Facebook</button>
+                <br />
+                <button onClick={googleSignIn} ><img className='socialIcon' src={GoogleIcon} alt="" /> Continue with Google</button>
+            </div>
+        </Container>
+    );
 
-  const handleResponse = (res) => {
-    if (res.success) {
-      setUser(res);
-      setLoggedInUser(res);
-      history.replace(from);
-    }
-    if (!res.success) {
-      setUser(res);
-      setLoggedInUser(res);
-    }
-  };
-  return (
-    <Container style={{ paddingBottom: "100px" }}>
-      <NavBar></NavBar>
-      <div className="form-container" style={{ paddingTop: "50px" }}>
-        <form onSubmit={handleSubmit} className="login-form">
-          <h4>Login</h4>
-          <br />
-          <input
-            type="text"
-            onBlur={handleBlur}
-            name="email"
-            placeholder="Username or Email"
-            required
-          />
-          <br />
-          <input
-            id="password"
-            type="password"
-            onBlur={handleBlur}
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <br />
-          <input className="submit-button" type="submit" value="Login" />
-          <br />
-          <p className="alert">
-            <small>
-              Don't have any account?{" "}
-              <span>
-                <a as={Link} href="/signup">
-                  Create an account
-                </a>
-              </span>{" "}
-            </small>
-          </p>
-        </form>
-        <div style={{ textAlign: "center" }}>
-          <p style={{ color: "red" }}>{user.error}</p>
-          {user.success && (
-            <p style={{ color: "green" }}>User logged in successfully</p>
-          )}
-        </div>
-      </div>
-      <p className="text-center">
-        <small>
-          <span>
-            <a
-              style={{ color: "red", fontWeight: "bold" }}
-              as={Link}
-              href="/dashboard"
-            >
-              For Admin Login Click Here
-            </a>
-          </span>{" "}
-        </small>
-      </p>
-      <hr className="divider" />
-      <div className="socialLoginButton">
-        <button onClick={fbSignIn}>
-          <img className="socialIcon" src={FbIcon} alt="" /> Continue with
-          Facebook
-        </button>
-        <br />
-        <button onClick={googleSignIn}>
-          <img className="socialIcon" src={GoogleIcon} alt="" /> Continue with
-          Google
-        </button>
-      </div>
-    </Container>
-  );
 };
 
 export default Login;
