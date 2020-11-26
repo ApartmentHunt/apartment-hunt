@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import logo from "../../Logo.png";
 import "./NavBar.css";
 const NavBar = () => {
@@ -8,6 +10,16 @@ const NavBar = () => {
         style={{ paddingLeft: "135px", paddingRight: "144px" }}
         className="navbar navbar-expand-lg navbar-light bg-white "
       >
+        <img style={{ height: "54px", width: "100px" }} src={logo} alt="" />
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        />
         <img style={{ height: "54px", width: "100px" }} src={logo} alt="" />
         <button
           className="navbar-toggler"
@@ -33,9 +45,9 @@ const NavBar = () => {
               </a>
             </li>
             <li className="nav-item active mr-2">
-              <a className="nav-link" href="#service">
+              <Link to="/Appartments" className="nav-link">
                 <b>Service</b>
-              </a>
+              </Link>
             </li>
             <li className="nav-item active mr-2">
               <a className="nav-link" href="#concerns">
@@ -62,7 +74,7 @@ const NavBar = () => {
                   color: "#fff",
                 }}
                 className="nav-link"
-                href="/login"
+                href="Login"
               >
                 Login
               </a>
