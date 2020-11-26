@@ -98,9 +98,9 @@ const Login = () => {
         if (res.success) {
             setUser(res);
             setLoggedInUser(res);
-            history.replace(from);
+            history.replace("/dashboard-user");
 
-        } if (!res.success) {
+        } if (res.error) {
             setUser(res);
             setLoggedInUser(res);
         }
@@ -131,6 +131,7 @@ const Login = () => {
                     {user.success && <p style={{ color: 'green' }}>User logged in successfully</p>}
                 </div>
             </div>
+            <p className="text-center"><small><span><a  style={{color: 'red', fontWeight: 'bold'}} as={Link} href="/admin-login">For Admin Login Click Here</a></span> </small></p>
             <hr className="divider" />
             <div className='socialLoginButton'>
                 <button onClick={fbSignIn} ><img className='socialIcon' src={FbIcon} alt="" /> Continue with Facebook</button>
