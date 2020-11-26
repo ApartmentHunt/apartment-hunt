@@ -1,98 +1,69 @@
-import React, { useContext, useState } from 'react';
-import { Container } from 'react-bootstrap';
-import { Link, useHistory, useLocation } from 'react-router-dom';
-import FbIcon from '../../Icon/fb.png';
-import GoogleIcon from '../../Icon/google.png';
-import { UserContext } from '../../App';
-import { signInWithEmailAndPassword, handleGoogleSignIn, handleFbSignIn, initializer } from '../AuthManager/AuthManager';
-import './Login.css';
-import NavBar from '../NavBar/NavBar';
-
-
-
-
+import React, { useContext, useState } from "react";
+import { Container } from "react-bootstrap";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import FbIcon from "../../Icon/fb.png";
+import GoogleIcon from "../../Icon/google.png";
+import { UserContext } from "../../App";
+import {
+  signInWithEmailAndPassword,
+  handleGoogleSignIn,
+  handleFbSignIn,
+  initializer,
+} from "../AuthManager/AuthManager";
+import "./Login.css";
+import NavBar from "../NavBar/NavBar";
 
 const Login = () => {
+  const [user, setUser] = useState({
+    isSignedIn: false,
+    name: "",
+    email: "",
+    password: "",
+  });
 
-    const [user, setUser] = useState({
-        isSignedIn: false,
-        name: '',
-        email: '',
-        password: '',
+  // eslint-disable-next-line no-unused-vars
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+  const history = useHistory();
+  const location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
+
+  initializer();
+
+  // Validator
+  const handleBlur = (event) => {
+    let isFieldValid = true;
+    if (event.target.name === "email") {
+      isFieldValid = /\S+@\S+\.\S+/.test(event.target.value);
+    }
+    if (event.target.name === "password") {
+      const lengthTest = event.target.value.length >= 6;
+      const numberTest = /\d{1}/.test(event.target.value);
+      isFieldValid = lengthTest && numberTest;
+    }
+    if (isFieldValid) {
+      const newUserInfo = { ...user };
+      newUserInfo[event.target.name] = event.target.value;
+      setUser(newUserInfo);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    if (user.email && user.password) {
+      signInWithEmailAndPassword(user.email, user.password).then((res) => {
+        handleResponse(res);
+      });
+    }
+    event.preventDefault();
+  };
+
+  const googleSignIn = (event) => {
+    handleGoogleSignIn().then((res) => {
+      handleResponse(res);
     });
-
-
-    // eslint-disable-next-line no-unused-vars
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
-    const history = useHistory();
-    const location = useLocation();
-    let { from } = location.state || { from: { pathname: "/" } };
-
-
-    initializer();
-
-
-
-
-
-
-    // Validator
-    const handleBlur = (event) => {
-        let isFieldValid = true;
-        if (event.target.name === 'email') {
-            isFieldValid = /\S+@\S+\.\S+/.test(event.target.value)
-        } if (event.target.name === 'password') {
-            const lengthTest = event.target.value.length >= 6;
-            const numberTest = /\d{1}/.test(event.target.value);
-            isFieldValid = lengthTest && numberTest;
-        } if (isFieldValid) {
-            const newUserInfo = { ...user };
-            newUserInfo[event.target.name] = event.target.value;
-            setUser(newUserInfo);
-        }
-    }
-
-
-
-
-
-    const handleSubmit = (event) => {
-        if (user.email && user.password) {
-            signInWithEmailAndPassword(user.email, user.password)
-                .then(res => {
-                    handleResponse(res)
-                })
-
-        }
-        event.preventDefault();
-    }
-
-
-
-
-    const googleSignIn = (event) => {
-        handleGoogleSignIn()
-            .then(res => {
-                handleResponse(res)
-            })
-        event.preventDefault();
-    }
-
-
-
-
-
-    const fbSignIn = (event) => {
-        handleFbSignIn()
-            .then(res => {
-                handleResponse(res)
-            })
-        event.preventDefault();
-    }
-
-
-
+    event.preventDefault();
+  };
+  
     const handleResponse = (res) => {
 
         if (res.success) {
@@ -106,11 +77,12 @@ const Login = () => {
         }
 
     }
-
-
-
-
-
+    const fbSignIn = (event) => {
+    handleFbSignIn().then((res) => {
+      handleResponse(res);
+    });
+    event.preventDefault();
+    };
     return (
         <Container style={{ paddingBottom: '100px' }}>
             <NavBar></NavBar>
@@ -140,6 +112,7 @@ const Login = () => {
             </div>
         </Container>
     );
+
 };
 
 export default Login;

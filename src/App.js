@@ -12,15 +12,15 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 export const UserContext = createContext();
 
 function App() {
+  const [admin, setAdmin] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({});
   useEffect(() => {
     fetch(`${loggedInUser.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setAdmin(data);
       });
   }, [loggedInUser.email]);
-
   console.log(loggedInUser);
   return (
     <div className="App">
@@ -34,8 +34,16 @@ function App() {
               <Route path="/login">
                 <Login></Login>
               </Route>
+
               <Route path="/admin-login">
                 <AdminLogin></AdminLogin>
+
+              <Route path="/ApartmentMain/:_id">
+                <ApartmentMain></ApartmentMain>
+              </Route>
+              <Route path="/dashboard">
+                <Dashboard></Dashboard>
+
               </Route>
               <Route path="/booking">
                 <ApartmentMain></ApartmentMain>
