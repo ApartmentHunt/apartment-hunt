@@ -1,8 +1,8 @@
-import React from 'react';
-import Appartments from '../Appartments/Appartments';
-import Footer from '../Footer/Footer';
-import NavBar from '../NavBar/NavBar';
-import Services from '../Services/Services';
+import React from "react";
+import Appartments from "../Appartments/Appartments";
+import Footer from "../Footer/Footer";
+import NavBar from "../NavBar/NavBar";
+import Services from "../Services/Services";
 import "./Home.css";
 
 const Home = () => {
