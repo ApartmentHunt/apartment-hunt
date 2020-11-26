@@ -106,12 +106,7 @@ const Login = () => {
         }
 
     }
-
-
-
-
-
-    return (
+return (
         <Container style={{ paddingBottom: '100px' }}>
             <NavBar></NavBar>
             <div className="form-container" style={{ paddingTop: '50px' }}>
@@ -130,6 +125,16 @@ const Login = () => {
                     <p style={{ color: 'red' }}>{user.error}</p>
                     {user.success && <p style={{ color: 'green' }}>User logged in successfully</p>}
                 </div>
+                <div className="lgnBtnContainer">
+                    <button className="btn btn-primary">Submit</button>
+                    <p className="alert"><small>Don't have any account? <span><Link to ="/reg">Create an account</Link></span> </small></p>
+                </div>
+            </form>
+            <hr/>
+            <div className="socialBtnContainer">
+                <button type="button" className="btn btn-light socialBtn fbBtn">Continue with Facebook</button>
+                <button type="button" className="btn btn-light socialBtn gBtn"> Continue with Google</button>
+            </div>
             </div>
             <hr className="divider" />
             <div className='socialLoginButton'>

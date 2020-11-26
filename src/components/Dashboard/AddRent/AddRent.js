@@ -1,89 +1,115 @@
-import React from 'react';
-import { useState } from 'react';
-import { Button, Col, Form, Row } from 'react-bootstrap';
-import '../Dashboard/Dashboard.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUpload } from '@fortawesome/free-solid-svg-icons'
+import React, { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import './AddRent.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import { UserContext } from '../../../App';
 
 const AddRent = () => {
-    const [services, setServices] = useState({});
-    const [files, setFiles] = useState(null);
-
-    const handleInput = (e) => {
-        const newServices = { ...services };
-        newServices[e.target.name] = e.target.value;
-        setServices(newServices);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const { register, handleSubmit, errors } = useForm();
+    const [info, setInfo] = useState({});
+    const [file, setFile] = useState(null);
+    const handleBlur = e => {
+        const newInfo = { ...info };
+        newInfo[e.target.name] = e.target.value;
+        setInfo(newInfo);
     }
 
-    const handleFileInput = e => {
+    const handleFileChange = (e) => {
         const newFile = e.target.files[0];
-        setFiles(newFile);
+        setFile(newFile);
     }
 
-    const handleSubmit = (e) => {
+    const history = useHistory();
+    const onSubmitEvent = () => {
         const formData = new FormData()
-        formData.append('file', files)
-        formData.append('title', services.title)
-        formData.append('description', services.description)
+        formData.append('file', file);
+        formData.append('name', info.name);
+        formData.append('bed', info.bed);
+        formData.append('bath', info.bath);
+        formData.append('location', info.location);
+        formData.append('price', info.price);
 
-        fetch('https://fierce-forest-06981.herokuapp.com/addAService', {
+        fetch('https://apartment-hunt-backend-server.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
             .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                if (data) {
-                    alert("New service added successfully");
-                }
-            })
             .catch(error => {
                 console.error(error)
             })
-        e.preventDefault();
-    }
+        history.push("/");
+    };
 
     return (
-        <div>
-            <Form style={{ paddingLeft: '20px' }}>
-                <Row style={{ padding: '20px', width: '100%', height: '300px', background: '#FFFFFF', borderRadius: '10px' }}>
-                    <Col md={6}>
-                        <Form.Group controlId="exampleForm.ControlInput1">
-                            <Form.Label style={{ fontWeight: '700' }}>Service Title</Form.Label>
-                            <Form.Control onChange={(e) => handleInput(e)} name="title" type="text" placeholder="Enter title" />
-                        </Form.Group>
-                        <Form.Group controlId="exampleForm.ControlInput1">
-                            <Form.Label style={{ fontWeight: '700' }}>Location</Form.Label>
-                            <Form.Control onChange={(e) => handleInput(e)} name="location" type="text" placeholder="Enter location" />
-                        </Form.Group>
-                        <Form.Group controlId="exampleForm.ControlInput1">
-                            <Form.Label style={{ fontWeight: '700' }}>No of Bathroom</Form.Label>
-                            <Form.Control onChange={(e) => handleInput(e)} name="bathroom" type="text" placeholder="Enter no" />
-                        </Form.Group>
-                    </Col>
-                    <Col md={6}>
-                        <Form.Group controlId="exampleForm.ControlInput1">
-                            <Form.Label style={{ fontWeight: '700' }}>Price</Form.Label>
-                            <Form.Control onChange={(e) => handleInput(e)} name="price" type="text" placeholder="Price" />
-                        </Form.Group>
-                        <Form.Group controlId="exampleForm.ControlInput1">
-                            <Form.Label style={{ fontWeight: '700' }}>No of Bedroom</Form.Label>
-                            <Form.Control onChange={(e) => handleInput(e)} name="bedroom" type="text" placeholder="Enter no" />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label style={{ fontWeight: '700' }}>Thumbnail</Form.Label>
-                            <br/>
-                            <div class="upload-btn-wrapper">
-                                <button onChange={(e) => handleFileInput(e)} className="upload-btn" ><FontAwesomeIcon style={{ marginRight: '10px' }} icon={faUpload} />Upload a file</button>
-                                <input type="file" name="file" />
-                            </div>
-                        </Form.Group>
+        
+                    <div className="adminService p-4">
+                        <form action="" onSubmit={handleSubmit(onSubmitEvent)}>
+                            <section className="addServiceSec">
+                                <div className="row p-4">
+                                    <div className="col-md-6">
+                                        <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> Service Title </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto " name="name" placeholder="Enter title" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
 
-                    </Col>
-                </Row>
-                <Button onClick={(e) => handleSubmit(e)} style={{ float: "right", margin: '20px', height: '40px', width: '100px', background: '#28A745' }} type="submit" variant="success">Submit</Button>
-            </Form>
-        </div>
+                                        <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> Location </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto " name="location" placeholder="Location" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> No of Bathroom </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto " name="bath" type="number" placeholder="Bathroom" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
+
+                                    </div>
+
+                                    <div className="col-md-6">
+
+                                    <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> Price </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto " name="price" type="number" placeholder="Price" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
+
+                                        <div className="mb-3">
+                                            <div className="input-group-prepend">
+                                                <b> No of Bedroom </b>
+                                            </div>
+                                            <input onBlur={handleBlur} className="w-100 mx-auto " name="bed" type="number" placeholder="Enter title" ref={register({ required: true })} />
+                                            {errors.eventName && <span className="error">Service Title is required</span>}
+                                        </div>
+
+                                        <b>Icon</b>
+                                        <div className="input-group mb-3">
+                                            <input id="file" accept="image/*" onChange={handleFileChange} className="w-100 mx-auto btn btn-dark " type="file" name="img" ref={register({ required: true })} />
+                                            {errors.eventBanner && <span className="error">Icon is required</span>}
+                                            <label className="btn btnUpload w-50" for="file">
+                                                 Upload Image</label>
+                                        </div>
+                                        {file && <p className="text-success">Image has been uploaded</p>}
+                                    </div>
+                                </div>
+                            </section>
+                            <div className=" d-flex justify-content-end mt-2">
+                                <button className="btn btn-success" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
     );
 };
 
