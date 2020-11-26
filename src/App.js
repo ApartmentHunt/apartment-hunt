@@ -1,7 +1,7 @@
 import "./App.css";
-import Home from "./components/Home/Home";
+import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
 
 function App() {
-  return <Home></Home>;
+  return <Dashboard></Dashboard> ;
 }
 export default App;
