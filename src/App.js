@@ -2,21 +2,19 @@ import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import ApartmentMain from "./components/ApartmentMain/ApartmentMain";
-import Appartments from "./components/Appartments/Appartments";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
-import Registration from "./components/Registration/Registration";
+import SignUp from "./components/SignUp/SignUp";
 
 export const UserContext = createContext();
 
 function App() {
-  const [admin, setAdmin] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({});
   useEffect(() => {
     fetch(`${loggedInUser.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setAdmin(data);
+        console.log(data);
       });
   }, [loggedInUser.email]);
 
@@ -35,6 +33,9 @@ function App() {
               </Route>
               <Route path="/booking">
                 <ApartmentMain></ApartmentMain>
+              </Route>
+              <Route path="/signup">
+                <SignUp></SignUp>
               </Route>
             </Switch>
           </div>

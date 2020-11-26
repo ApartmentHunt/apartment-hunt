@@ -20,7 +20,6 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         />
-        <img style={{ height: "54px", width: "100px" }} src={logo} alt="" />
         <button
           className="navbar-toggler"
           type="button"

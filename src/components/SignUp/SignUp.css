@@ -1,7 +1,7 @@
-.login-form{
-    margin-top:50px;
-    width: 405px;
-    height: 265px;
+.form{
+    margin-top: 20px;
+    width: 400px;
+    height: 350px;
     padding: 40px;
     margin-bottom: 20px;
     margin-left: auto;
@@ -11,36 +11,33 @@
     box-sizing: border-box;
     border-radius: 4px;
 }
-.login-form h4{
+.form h4{
     margin-top: -25px;
-    margin-bottom: -5px;
+    margin-bottom: -12px;
 }
-.login-form input{
+.form input{
     width: 100%;
     border: none;
     border-bottom: 1px solid #D5D5D5;
-    margin: 7px 0px;
+    margin: 6px 0px;
     padding: 2px 7px;
 }
-.login-form .submit-button{
-    margin-top: 15px;
+.form .submit-button{
+    margin-top: 8px;
     padding: 5px;
     background-color: #275A53;
+    ;
     border-radius: 4px;
     font-weight: 500;
-    margin-bottom: 10px;
     color: #fff;
 }
-.login-form .submit-button:hover{
+.form .submit-button:hover{
     background-color: #275A53; 
 }
-.login-form ::placeholder{
+.form ::placeholder{
     color: rgb(100, 98, 98);
     font-size: 15px;
     font-weight: 350;
-}
-.alert{
-    text-align: center;
 }
 .socialLoginButton{
     text-align: center;
@@ -58,6 +55,10 @@
 .socialLoginButton button:hover{
     background-color: #F7F7F7;
     border-color: lightgrey;
+}
+.alert{
+    text-align: center;
+    margin-top: -15px;
 }
 .small , small{
     font-weight: 500;
