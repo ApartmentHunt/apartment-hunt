@@ -2,6 +2,10 @@ import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import ApartmentMain from './components/ApartmentMain/ApartmentMain';
+import Appartments from './components/Appartments/Appartments';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Registration from './components/Registration/Registration';
 
 
 
@@ -28,7 +32,14 @@ function App() {
         <Router>
           <div>
             <Switch>
-             <Route >
+            <Route exact path="/">
+                <Home></Home>
+              </Route>
+
+              <Route path="/home">
+                <Home></Home>
+              </Route>
+              <Route path="/ApartmentMain">
               <ApartmentMain></ApartmentMain>
               </Route>
              </Switch>

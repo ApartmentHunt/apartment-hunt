@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import bath from "../../assets/bath 1.png";
 import bed from "../../assets/bed 1.png";
 import map from "../../assets/map-marker-alt-solid 1.png";
@@ -63,12 +64,11 @@ const Appartments = () => {
                 </div>
                 <div className="cardFooter d-flex justify-content-between align-items-center">
                   <p className="price">$194</p>
-                  <a
-                    href="#1"
+                  <Link to="/ApartmentMain"
                     class="btn btn-success float-right details-button"
                   >
                     View Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -119,12 +119,11 @@ const Appartments = () => {
                 </div>
                 <div className="cardFooter d-flex justify-content-between align-items-center">
                   <p className="price">$194</p>
-                  <a
-                    href="#1"
+                  <Link to="/ApartmentMain"
                     class="btn btn-success float-right details-button"
                   >
                     View Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -175,12 +174,11 @@ const Appartments = () => {
                 </div>
                 <div className="cardFooter d-flex justify-content-between align-items-center">
                   <p className="price">$194</p>
-                  <a
-                    href="#1"
+                  <Link to="/ApartmentMain"
                     class="btn btn-success float-right details-button"
                   >
                     View Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -231,12 +229,11 @@ const Appartments = () => {
                 </div>
                 <div className="cardFooter d-flex justify-content-between align-items-center">
                   <p className="price">$194</p>
-                  <a
-                    href="#1"
+                  <Link to="/ApartmentMain"
                     class="btn btn-success float-right details-button"
                   >
                     View Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -287,12 +284,11 @@ const Appartments = () => {
                 </div>
                 <div className="cardFooter d-flex justify-content-between align-items-center">
                   <p className="price">$194</p>
-                  <a
-                    href="#1"
+                  <Link to="/ApartmentMain"
                     class="btn btn-success float-right details-button"
                   >
                     View Details
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -343,12 +339,12 @@ const Appartments = () => {
                 </div>
                 <div className="cardFooter d-flex justify-content-between align-items-center">
                   <p className="price">$194</p>
-                  <a
-                    href="#1"
+                  <Link to="/ApartmentMain"
                     class="btn btn-success float-right details-button"
                   >
                     View Details
-                  </a>
+                  </Link>
+                  
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from "../../Logo.png";
 import "./NavBar.css";
 const NavBar = () => {
@@ -33,9 +34,9 @@ const NavBar = () => {
                 </a>
               </li>
               <li className="nav-item active mr-2">
-                <a className="nav-link" href="#service">
+                <Link to='/Appartments' className="nav-link" >
                   <b>Service</b>
-                </a>
+                </Link> 
               </li>
               <li className="nav-item active mr-2">
                 <a className="nav-link" href="#concerns">
@@ -56,7 +57,7 @@ const NavBar = () => {
                 <a
                   style={{ backgroundColor: "#275A53", width : "104px", borderRadius :"5px", textAlign : "center", color : "#fff" }}
                   className="nav-link"
-                  href="#login"
+                  href="Login"
                 >
                   Login
                 </a>
