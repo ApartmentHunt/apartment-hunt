@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import './Login.css';
 
@@ -23,7 +24,7 @@ const Login = () => {
                 </div>
                 <div className="lgnBtnContainer">
                     <button className="btn btn-primary">Submit</button>
-                    <p className="alert"><small>Don't have any account? <span><a href="#">Create an account</a></span> </small></p>
+                    <p className="alert"><small>Don't have any account? <span><Link to ="/reg">Create an account</Link></span> </small></p>
                 </div>
             </form>
             <hr/>

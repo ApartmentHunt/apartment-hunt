@@ -21,3 +21,7 @@
         .subSecDetail img{
           width:100px;
         }
+
+        .form-control{
+          border: 1px solid black;
+        }
