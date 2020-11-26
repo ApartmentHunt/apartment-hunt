@@ -12,9 +12,11 @@ import Registration from './components/Registration/Registration';
 
 
 
+
 export const UserContext = createContext();
 
 function App() {
+
   const [admin, setAdmin] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({});
   useEffect(() => {
@@ -24,7 +26,6 @@ function App() {
         setAdmin(data);
       })
   }, [loggedInUser.email]);
-
 
   console.log(loggedInUser);
   return (
@@ -37,7 +38,6 @@ function App() {
                 <Home></Home>
               </Route>
 
-              <Route path="/home">
                 <Home></Home>
               </Route>
               <Route path="/login">
@@ -52,7 +52,13 @@ function App() {
               <Route path="/dashboard">
               <Dashboard></Dashboard>
               </Route>
-             </Switch>
+              <Route path="/booking">
+                <ApartmentMain></ApartmentMain>
+              </Route>
+              <Route path="/signup">
+                <SignUp></SignUp>
+              </Route>
+            </Switch>
           </div>
         </Router>
       </UserContext.Provider>

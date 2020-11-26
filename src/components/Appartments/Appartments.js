@@ -1,8 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Appartment.css';
-
-
 const Services = () => {
   const [services, setServices] = useState([]);
   const [redirect, setRedirect] = useState();
@@ -16,7 +15,6 @@ const Services = () => {
         setRedirect(true)
       })
   }, [redirect]);
-
   return (
     <div className="container" id="service">
       {services.length === 0 && <h1 align="center"> Please Wait......... </h1>} <br />

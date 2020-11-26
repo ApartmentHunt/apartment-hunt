@@ -17,7 +17,7 @@ import './ApartmentMain.css'
 
 
 
-const Book = () => {
+const ApartmentMain = () => {
 
 
     const { register, handleSubmit, errors } = useForm();
@@ -69,11 +69,11 @@ const Book = () => {
                 // console.log(data);
             });
     }, [_id])
-    return (
-        <div>
-            <NavBar></NavBar>
-            <div className="detailsSec d-flex justify-content-center align-items-center">
-                <h1>Apartment</h1>
+  return (
+    <div>
+      <NavBar></NavBar>
+      <div className="detailsSec d-flex justify-content-center align-items-center">
+        <h1>Apartment</h1>
             </div>
             <div className="container mt-3 mb-3">
 
@@ -173,4 +173,4 @@ const Book = () => {
     );
 };
 
-export default Book;
+export default ApartmentMain;
