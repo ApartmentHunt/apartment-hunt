@@ -45,7 +45,7 @@ const ApartmentMain = () => {
         formData.append('service', info.service);
         formData.append('price', info.price);
 
-        fetch('https://nameless-fortress-40927.herokuapp.com/addOrder', {
+        fetch('https://apartment-hunt-backend-server.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })
