@@ -2,14 +2,14 @@ import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+import ApartmentMain from "./components/ApartmentMain/ApartmentMain";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+
+export const UserContext = createContext();
 
 function App() {
   return <Dashboard></Dashboard>;
-  import ApartmentMain from "./components/ApartmentMain/ApartmentMain";
-  import Home from "./components/Home/Home";
-  import Login from "./components/Login/Login";
-
-  export const UserContext = createContext();
 
   function App() {
     const [admin, setAdmin] = useState(false);
